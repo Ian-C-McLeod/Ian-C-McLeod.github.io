@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  body {
-    display: flex;
-    justify-content: center; /* horizontal centering */
-    align-items: center;     /* vertical centering */
-    height: 100vh;           /* full viewport height */
-    margin: 0;
-    background-color: #f0f0f0;
-  }
-
-  .circle {
-    width: 150px;
-    height: 150px;
-    background-color: #3498db;
-    border-radius: 50%;
-  }
-</style>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
-  <div class="circle"></div>
+  <svg width="300" height="300" viewBox="0 0 300 300">
+    <!-- Big circle quadrants -->
+    <path d="M150,150 L300,150 A150,150 0 0,1 150,0 Z" fill="#e74c3c"/>
+    <path d="M150,150 L150,0 A150,150 0 0,1 0,150 Z" fill="#3498db"/>
+    <path d="M150,150 L0,150 A150,150 0 0,1 150,300 Z" fill="#2ecc71"/>
+    <path d="M150,150 L150,300 A150,150 0 0,1 300,150 Z" fill="#f1c40f"/>
+    
+    <!-- Center circle on top -->
+    <circle cx="150" cy="150" r="50" fill="#ffffff" stroke="#000000" stroke-width="2"/>
+  </svg>
 </body>
 </html>
