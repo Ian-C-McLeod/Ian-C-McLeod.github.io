@@ -8,10 +8,11 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-        background-image: url('New Project(35).png');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+      background-image: url('New Project(35).png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: sans-serif;
     }
 
     .container {
@@ -39,46 +40,113 @@
       justify-content: center;
       align-items: center;
       text-decoration: none;
+      z-index: 10; /* make sure it’s above SVG */
     }
 
     .center-button span {
       pointer-events: none; /* let the click go through */
-      font-family: sans-serif;
       font-size: 16px;
-      color: #ffff;
+      color: #fff;
       text-align: center;
     }
 
     .center-button:hover {
-      /* optional hover effect */
-      background: #f0c27b;
+      background: rgba(240, 194, 123, 0.3);
     }
+
+    /* Sliding panel */
+    #panel {
+      position: fixed;
+      bottom: -300px; /* start hidden */
+      left: 0;
+      width: 100%;
+      height: 300px;
+      background: rgba(0,0,0,0.9);
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: bottom 0.4s ease;
+      z-index: 100;
+    }
+
+    #panel.show {
+      bottom: 0; /* slide up */
+    }
+
+    #panel button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Optional: Centered text on page */
+    #centered-text {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: red;
+      font-size: 28px;
+      text-align: center;
+      pointer-events: none; /* ignore clicks */
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- Floating centered text -->
+  <div id="centered-text">Unraveled I am a Sea of Stars<br>Who Knows how deep and Far</div>
+
   <div class="container">
     <svg width="300" height="300" viewBox="0 0 300 300">
-    <defs>
-      <radialGradient id="radialGradient" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" style="stop-color:#571e58; stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#7441ff; stop-opacity:1" />
-      </radialGradient>
-    </defs>
+      <defs>
+        <radialGradient id="radialGradient" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" style="stop-color:#571e58; stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#7441ff; stop-opacity:1" />
+        </radialGradient>
+      </defs>
+
       <!-- Big circle quadrants -->
       <path d="M150,150 L300,150 A150,150 0 0,1 150,0 Z" fill="url(#radialGradient)"/>
       <path d="M150,150 L150,0 A150,150 0 0,1 0,150 Z" fill="url(#radialGradient)"/>
       <path d="M150,150 L0,150 A150,150 0 0,1 150,300 Z" fill="url(#radialGradient)"/>
       <path d="M150,150 L150,300 A150,150 0 0,1 300,150 Z" fill="url(#radialGradient)"/>
-      
+
       <!-- Center circle -->
       <circle cx="150" cy="150" r="50" fill="url(#radialGradient)" />
     </svg>
 
-
-    <!-- Entire center circle clickable -->
-    <a href="#" class="center-button">
+    <!-- Clickable center circle -->
+    <a href="#" class="center-button" id="centerBtn">
       <span>Me</span>
     </a>
   </div>
+
+  <!-- Sliding Panel -->
+  <div id="panel">
+    <h2>Call Me Ian</h2>
+    <p>I am a lost Traveler... who loves coding. as You can see this isn't yet much of a website so stay vigilent and Carry on till the next dawn.</p>
+    <button id="closePanel">Close</button>
+  </div>
+
+  <script>
+    const panel = document.getElementById('panel');
+    const btn = document.getElementById('centerBtn');
+    const closeBtn = document.getElementById('closePanel');
+
+    // Show panel on click
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      panel.classList.add('show');
+    });
+
+    // Close panel
+    closeBtn.addEventListener('click', () => {
+      panel.classList.remove('show');
+    });
+  </script>
+
 </body>
 </html>
