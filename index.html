@@ -25,26 +25,25 @@
       display: block;
     }
 
-    /* Make the center circle clickable */
     .center-button {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100px;  /* same as circle diameter */
+      width: 100px; 
       height: 100px;
       border-radius: 50%;
-      background: transparent; /* circle itself is in SVG */
+      background: transparent;
       transform: translate(-50%, -50%);
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
       text-decoration: none;
-      z-index: 10; /* make sure it’s above SVG */
+      z-index: 10;
     }
 
     .center-button span {
-      pointer-events: none; /* let the click go through */
+      pointer-events: none; 
       font-size: 16px;
       color: #fff;
       text-align: center;
@@ -70,7 +69,7 @@
     }
 
     #panel.show {
-      bottom: 0; /* slide up */
+      bottom: 0; 
     }
 
     #panel button {
@@ -79,8 +78,6 @@
       font-size: 16px;
       cursor: pointer;
     }
-
-    /* Optional: Centered text on page */
     #centered-text {
       position: absolute;
       top: 20px;
@@ -89,14 +86,13 @@
       color: red;
       font-size: 28px;
       text-align: center;
-      pointer-events: none; /* ignore clicks */
+      pointer-events: none;
     }
 
   </style>
 </head>
 <body>
 
-  <!-- Floating centered text -->
   <div id="centered-text">Unraveled I am a Sea of Stars<br>Who Knows how deep and Far</div>
 
   <div class="container">
@@ -108,13 +104,11 @@
         </radialGradient>
       </defs>
 
-      <!-- Big circle quadrants -->
       <path d="M150,150 L300,150 A150,150 0 0,1 150,0 Z" fill="url(#radialGradient)"/>
       <path d="M150,150 L150,0 A150,150 0 0,1 0,150 Z" fill="url(#radialGradient)"/>
       <path d="M150,150 L0,150 A150,150 0 0,1 150,300 Z" fill="url(#radialGradient)"/>
       <path d="M150,150 L150,300 A150,150 0 0,1 300,150 Z" fill="url(#radialGradient)"/>
 
-      <!-- Center circle -->
       <circle cx="150" cy="150" r="50" fill="url(#radialGradient)" />
     </svg>
 
