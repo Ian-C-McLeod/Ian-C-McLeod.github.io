@@ -2,97 +2,116 @@
 <html>
 <head>
   <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-image: url('New Project(35).png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      font-family: sans-serif;
-    }
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
 
-    .container {
-      position: relative;
-      width: 150px;
-      height: 150px;
-    }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-image: url('New Project(35).png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    overflow: hidden;
+  }
 
-    svg {
-      display: block;
-    }
+  /* Poem text */
+  #centered-text {
+    position: fixed;
+    top: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: red;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    text-align: center;
+    pointer-events: none;
+    font-family: 'Times New Roman', serif;
+    font-style: italic;
+    max-width: 90vw;
+  }
 
-    .center-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 50px; 
-      height: 50px;
-      border-radius: 50%;
-      background: transparent;
-      transform: translate(-50%, -50%);
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      z-index: 10;
-    }
+  .container {
+    position: relative;
+    width: min(40vw, 150px);
+    aspect-ratio: 1 / 1;
+  }
 
-    .center-button span {
-      pointer-events: none; 
-      font-size: 16px;
-      color: gold;
-      text-align: center;
-    }
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 
-    .center-button:hover {
-      background: rgba(240, 194, 123, 0.3);
-    }
+  .center-button {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    z-index: 10;
+  }
 
-    /* Sliding panel */
-    #panel {
-      position: fixed;
-      bottom: -60%; /* start hidden */
-      left: 30%;
-      width: 40%;
-      height: 60%;
-      background: rgba(0,0,0,0.9);
-      color: white;
-      padding: 20px;
-      box-sizing: border-box;
-      transition: bottom 0.4s ease;
-      z-index: 100;
-    }
+  .center-button span {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    color: gold;
+    pointer-events: none;
+  }
 
-    #panel.show {
-      bottom: 10%; 
-    }
+  .center-button:hover {
+    background: rgba(240, 194, 123, 0.3);
+  }
 
-    #panel button {
-      margin-top: 20px;
-      padding: 8px 16px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    #centered-text {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: red;
-      font-size: 24px;
-      text-align: center;
-      pointer-events: none;
-    }
+  /* Sliding panel */
+  #panel {
+    position: fixed;
+    left: 50%;
+    bottom: -70%;
+    transform: translateX(-50%);
+    width: min(90vw, 600px);
+    height: min(70vh, 600px);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    transition: bottom 0.4s ease;
+    z-index: 100;
+    overflow-y: auto;
+  }
 
-  </style>
+  #panel.show {
+    bottom: 5vh;
+  }
+
+  #panel button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .styled-img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    outline: 3px solid #333;
+    outline-offset: 4px;
+    display: block;
+  }
+</style>
 </head>
 <body>
-
   <div id="centered-text">Unraveled, I am a Sea of Stars<br>Who Knows how Deep and Far...<br><br>Plumb the depths of the Abyss<br>May your vessel be starlight kissed</div>
 
   <div class="container">
@@ -123,8 +142,10 @@
   <div id="panel">
     <h2>I am But a Traveler</h2>
     <p>So far from my Father's home...</p>
-    <p>My name is different in every tongue, So I will not give you only one, but the plethora I know under this sun.<p>
+    <p style="font-size: 20px;"> I am a Terminal Tinkerer, a woefully drained poet, a Mathematic Reveler, and a foreigner far from his father kingdom.</p>
+    <p style="font-size: 20px;">My name is different in every tongue, So I will not give you only one, but the plethora I know under this sun:<br>Sir Charlint<br>Man Preferably Unknown<br>Ian McLeod<br><p>
     <button id="closePanel">Close</button>
+    <img src="image.psd(4).png" alt="Italian Trulli" class="styled-img" title="Possible image">
   </div>
 
   <script>
