@@ -17,8 +17,8 @@
 
     .container {
       position: relative;
-      width: 300px;
-      height: 300px;
+      width: 150px;
+      height: 150px;
     }
 
     svg {
@@ -29,8 +29,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100px; 
-      height: 100px;
+      width: 50px; 
+      height: 50px;
       border-radius: 50%;
       background: transparent;
       transform: translate(-50%, -50%);
@@ -45,7 +45,7 @@
     .center-button span {
       pointer-events: none; 
       font-size: 16px;
-      color: #fff;
+      color: gold;
       text-align: center;
     }
 
@@ -56,10 +56,10 @@
     /* Sliding panel */
     #panel {
       position: fixed;
-      bottom: -300px; /* start hidden */
-      left: 0;
-      width: 100%;
-      height: 300px;
+      bottom: -60%; /* start hidden */
+      left: 30%;
+      width: 40%;
+      height: 60%;
       background: rgba(0,0,0,0.9);
       color: white;
       padding: 20px;
@@ -69,7 +69,7 @@
     }
 
     #panel.show {
-      bottom: 0; 
+      bottom: 10%; 
     }
 
     #panel button {
@@ -84,7 +84,7 @@
       left: 50%;
       transform: translateX(-50%);
       color: red;
-      font-size: 28px;
+      font-size: 24px;
       text-align: center;
       pointer-events: none;
     }
@@ -93,25 +93,25 @@
 </head>
 <body>
 
-  <div id="centered-text">Unraveled I am a Sea of Stars<br>Who Knows how deep and Far</div>
+  <div id="centered-text">Unraveled, I am a Sea of Stars<br>Who Knows how Deep and Far...<br><br>Plumb the depths of the Abyss<br>May your vessel be starlight kissed</div>
 
   <div class="container">
-    <svg width="300" height="300" viewBox="0 0 300 300">
-      <defs>
-        <radialGradient id="radialGradient" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" style="stop-color:#571e58; stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#7441ff; stop-opacity:1" />
-        </radialGradient>
-      </defs>
+  <svg width="150" height="150" viewBox="0 0 150 150">
+    <defs>
+      <radialGradient id="radialGradient" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" style="stop-color:#571e58; stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#7441ff; stop-opacity:1" />
+      </radialGradient>
+    </defs>
 
-      <path d="M150,150 L300,150 A150,150 0 0,1 150,0 Z" fill="url(#radialGradient)"/>
-      <path d="M150,150 L150,0 A150,150 0 0,1 0,150 Z" fill="url(#radialGradient)"/>
-      <path d="M150,150 L0,150 A150,150 0 0,1 150,300 Z" fill="url(#radialGradient)"/>
-      <path d="M150,150 L150,300 A150,150 0 0,1 300,150 Z" fill="url(#radialGradient)"/>
+    <path d="M75,75 L150,75 A75,75 0 0,1 75,0 Z" fill="url(#radialGradient)"/>
+    <path d="M75,75 L75,0 A75,75 0 0,1 0,75 Z" fill="url(#radialGradient)"/>
+    <path d="M75,75 L0,75 A75,75 0 0,1 75,150 Z" fill="url(#radialGradient)"/>
+    <path d="M75,75 L75,150 A75,75 0 0,1 150,75 Z" fill="url(#radialGradient)"/>
 
-      <!-- Center circle -->
-      <circle cx="150" cy="150" r="50" fill="url(#radialGradient)" />
-    </svg>
+    <!-- Center circle -->
+    <circle cx="75" cy="75" r="25" fill="url(#radialGradient)" />
+  </svg>
 
     <!-- Clickable center circle -->
     <a href="#" class="center-button" id="centerBtn">
@@ -121,8 +121,9 @@
 
   <!-- Sliding Panel -->
   <div id="panel">
-    <h2>Call Me Ian</h2>
-    <p>I am a lost Traveler... who loves coding. as You can see this isn't yet much of a website so stay vigilant and carry on till the next dawn or when I see you again.</p>
+    <h2>I am But a Traveler</h2>
+    <p>So far from my Father's home...</p>
+    <p>My name is different in every tongue, So I will not give you only one, but the plethora I know under this sun.<p>
     <button id="closePanel">Close</button>
   </div>
 
