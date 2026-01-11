@@ -1,169 +1,279 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <style>
-  html, body {
-    width: 100%;
-    height: 100%;
-  }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sea of Stars</title>
 
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    background-image: url('New Project(35).png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    font-family: sans-serif;
-    overflow: hidden;
-  }
+<style>
+html, body {
+  width: 100%;
+  height: 100%;
+}
 
-  /* Poem text */
-  #centered-text {
-    position: fixed;
-    top: 2vh;
-    left: 50%;
-    transform: translateX(-50%);
-    color: red;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    text-align: center;
-    pointer-events: none;
-    font-family: 'Times New Roman', serif;
-    font-style: italic;
-    max-width: 90vw;
-  }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-image: url('New Project(35).png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  font-family: sans-serif;
+  overflow: hidden;
+}
 
-  .container {
-    position: relative;
-    width: min(40vw, 150px);
-    aspect-ratio: 1 / 1;
-  }
+/* Poem text */
+#centered-text {
+  position: fixed;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  text-align: center;
+  pointer-events: none;
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+  max-width: 90vw;
+}
 
-  svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
+.container {
+  position: fixed;
+  width: min(40vw, 150px);
+  aspect-ratio: 1 / 1;
+}
 
-  .center-button {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    width: 35%;
-    height: 35%;
-    border-radius: 50%;
-    background: transparent;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    z-index: 10;
-  }
+svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 
-  .center-button span {
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-    color: gold;
-    pointer-events: none;
-  }
+/* Center buttons */
+.center-button {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 35%;
+  height: 35%;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  z-index: 10;
+}
 
-  .center-button:hover {
-    background: rgba(240, 194, 123, 0.3);
-  }
+.center-button span {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  color: gold;
+  pointer-events: none;
+}
 
-  /* Sliding panel */
-  #panel {
-    position: fixed;
-    left: 50%;
-    bottom: -70%;
-    transform: translateX(-50%);
-    width: min(90vw, 600px);
-    height: min(70vh, 600px);
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-    padding: 1.5rem;
-    box-sizing: border-box;
-    transition: bottom 0.4s ease;
-    z-index: 100;
-    overflow-y: auto;
-  }
+.center-button:hover {
+  background: rgba(240, 194, 123, 0.3);
+}
 
-  #panel.show {
-    bottom: 5vh;
-  }
+/* Sliding panel */
+#panel {
+  position: fixed;
+  left: 50%;
+  bottom: -70%;
+  transform: translateX(-50%);
+  width: min(90vw, 600px);
+  height: min(70vh, 600px);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  transition: bottom 0.4s ease;
+  z-index: 100;
+  overflow-y: auto;
+}
 
-  #panel button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-  }
+#panel.show {
+  bottom: 5vh;
+}
 
-  .styled-img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 1rem;
-    outline: 3px solid #333;
-    outline-offset: 4px;
-    display: block;
-  }
+#panel button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.styled-img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  outline: 3px solid #333;
+  outline-offset: 4px;
+  display: block;
+}
 </style>
 </head>
-<body>
-  <div id="centered-text">Unraveled, I am a Sea of Stars<br>Who Knows how Deep and Far...<br><br>Plumb the depths of the Abyss<br>May your vessel be starlight kissed</div>
 
-  <div class="container">
-  <svg width="150" height="150" viewBox="0 0 150 150">
+<body>
+
+<div id="centered-text">
+  Unraveled, I am a Sea of Stars<br>
+  Who Knows how Deep and Far...<br><br>
+  Plumb the depths of the Abyss<br>
+  May your vessel be starlight kissed
+</div>
+
+
+<div class="container">
+  <svg viewBox="0 0 150 150">
     <defs>
-      <radialGradient id="radialGradient" cx="50%" cy="50%" r="50%">
-        <stop offset="0%" style="stop-color:#571e58; stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#7441ff; stop-opacity:1" />
+      <radialGradient id="grad1" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#571e58"/>
+        <stop offset="100%" stop-color="#7441ff"/>
       </radialGradient>
     </defs>
 
-    <path d="M75,75 L150,75 A75,75 0 0,1 75,0 Z" fill="url(#radialGradient)"/>
-    <path d="M75,75 L75,0 A75,75 0 0,1 0,75 Z" fill="url(#radialGradient)"/>
-    <path d="M75,75 L0,75 A75,75 0 0,1 75,150 Z" fill="url(#radialGradient)"/>
-    <path d="M75,75 L75,150 A75,75 0 0,1 150,75 Z" fill="url(#radialGradient)"/>
+    <path d="M75,75 L150,75 A75,75 0 0,1 75,0 Z" fill="url(#grad1)"/>
+    <path d="M75,75 L75,0 A75,75 0 0,1 0,75 Z" fill="url(#grad1)"/>
+    <path d="M75,75 L0,75 A75,75 0 0,1 75,150 Z" fill="url(#grad1)"/>
+    <path d="M75,75 L75,150 A75,75 0 0,1 150,75 Z" fill="url(#grad1)"/>
 
-    <!-- Center circle -->
-    <circle cx="75" cy="75" r="25" fill="url(#radialGradient)" />
+    <circle cx="75" cy="75" r="25" fill="url(#grad1)" />
   </svg>
 
-    <!-- Clickable center circle -->
-    <a href="#" class="center-button" id="centerBtn">
-      <span>Me</span>
-    </a>
-  </div>
+  <a href="#" class="center-button" data-panel="me">
+    <span>Me</span>
+  </a>
+</div>
 
-  <!-- Sliding Panel -->
-  <div id="panel">
-    <h2>I am But a Traveler</h2>
-    <p>So far from my Father's home...</p>
-    <p style="font-size: 20px;"> I am a Terminal Tinkerer, a woefully drained poet, a Mathematic Reveler, and a foreigner far from his father's kingdom.</p>
-    <p style="font-size: 20px;">My name is different in every tongue, So I will not give you only one, but the plethora I know under this sun:<br><br>Sir Charlint<br>Man Preferably Unknown<br>Ian McLeod<br><p>
-    <button id="closePanel">Close</button>
-    <img src="image.psd(4).png" alt="Italian Trulli" class="styled-img" title="Possible image">
-  </div>
 
-  <script>
-    const panel = document.getElementById('panel');
-    const btn = document.getElementById('centerBtn');
-    const closeBtn = document.getElementById('closePanel');
+<div class="container" style="margin-left:-800px;margin-top:700px;">
+  <svg viewBox="0 0 150 150">
+    <defs>
+      <radialGradient id="grad2" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#f2992e"/>
+        <stop offset="100%" stop-color="#d23b53"/>
+      </radialGradient>
+    </defs>
 
-    // Show panel on click
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      panel.classList.add('show');
-    });
+    <path d="M75,75 L150,75 A75,75 0 0,1 75,0 Z" fill="url(#grad2)"/>
+    <path d="M75,75 L75,0 A75,75 0 0,1 0,75 Z" fill="url(#grad2)"/>
+    <path d="M75,75 L0,75 A75,75 0 0,1 75,150 Z" fill="url(#grad2)"/>
+    <path d="M75,75 L75,150 A75,75 0 0,1 150,75 Z" fill="url(#grad2)"/>
 
-    // Close panel
-    closeBtn.addEventListener('click', () => {
-      panel.classList.remove('show');
-    });
-  </script>
+    <circle cx="75" cy="75" r="25" fill="url(#grad2)" />
+  </svg>
+
+  <a href="#" class="center-button" data-panel="tools">
+    <span>Tools</span>
+  </a>
+</div>
+
+<div class="container" style="margin-left:-400px;margin-top:-400px;">
+  <svg viewBox="0 0 150 150">
+    <defs>
+      <radialGradient id="grad3" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#52992e"/>
+        <stop offset="100%" stop-color="#323b53"/>
+      </radialGradient>
+    </defs>
+
+    <path d="M75,75 L150,75 A75,75 0 0,1 75,0 Z" fill="url(#grad3)"/>
+    <path d="M75,75 L75,0 A75,75 0 0,1 0,75 Z" fill="url(#grad3)"/>
+    <path d="M75,75 L0,75 A75,75 0 0,1 75,150 Z" fill="url(#grad3)"/>
+    <path d="M75,75 L75,150 A75,75 0 0,1 150,75 Z" fill="url(#grad3)"/>
+
+    <circle cx="75" cy="75" r="25" fill="url(#grad3)" />
+  </svg>
+
+  <a href="#" class="center-button" data-panel="Projects">
+    <span>Projects</span>
+  </a>
+</div>
+
+
+<!-- PANEL -->
+<div id="panel">
+  <h2 id="panelTitle"></h2>
+  <div id="panelBody"></div>
+  <button id="closePanel">Close</button>
+</div>
+
+<script>
+const panel = document.getElementById("panel");
+const title = document.getElementById("panelTitle");
+const body = document.getElementById("panelBody");
+const closeBtn = document.getElementById("closePanel");
+
+const panelContent = {
+  me: {
+    title: "I am But a Traveler",
+    body: `
+      <p>So far from my Father's home...</p>
+      <p style="font-size:20px;">
+        I am a Terminal Tinkerer, a woefully drained poet,
+        a Mathematic Reveler, and a foreigner far from his father's kingdom.
+      </p>
+      <p style="font-size:20px;">
+        My name is different in every tongue:<br><br>
+        Sir Charlint<br>
+        Man Preferably Unknown<br>
+        Ian McLeod
+      </p>
+      <img src="image.psd(4).png" class="styled-img">
+    `
+  },
+
+  tools: {
+    title: "Tools & Tutorial",
+    body: `
+      <p style="font-size:20px;">
+        The instruments of a Terminal Tinkerer are a necessity for creating wonders, and I can show you how to make and use these tools for grandiose creations.
+      </p>
+      <ul>
+        <li>C and C++ Data Structures not native to the STL.</li>
+        <li>Implementations of templated Tries, radix trees, and other trees in general.</li>
+        <li>Mathematic Streams and abstract graphs and better set types.</li>
+        <li>OVer all documenting and explaining use cases for unfamiliar/niche data structures.</li>
+      </ul>
+      <p>Key to the Forge:(soon)</p>
+    `
+  },
+  Projects: {
+    title: "Projects",
+    body: `
+      <p style="font-size:20px;">
+        I filled a meager gallery of works from my travels. I have written discussions and detailed analysis on my collected wonders for those of interest.    
+      </p>
+      <ul>
+        <li>Centrally Bootstrapped Peer-to-Peer Data Network.</li>
+        <li>NxN kings graph path counting Optimization attempt(14 hous -> 5 minutes)</li>
+      </ul>
+      <p> Entrance to the gallery:(soon)</p>
+    `
+  }
+
+
+
+};
+
+document.querySelectorAll(".center-button").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.preventDefault();
+    const key = btn.dataset.panel;
+    title.innerHTML = panelContent[key].title;
+    body.innerHTML = panelContent[key].body;
+    panel.classList.add("show");
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  panel.classList.remove("show");
+});
+</script>
 
 </body>
 </html>
