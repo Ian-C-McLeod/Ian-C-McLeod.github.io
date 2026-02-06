@@ -13,8 +13,7 @@ html, body {
 
 body {
   display: flex;
-  justify-content: center;
-  align-items: center;
+   flex-direction: column;
   margin: 0;
   background-image: url('brick4.png');
   background-position: center;
@@ -23,5 +22,33 @@ body {
   font-family: sans-serif;
   overflow: hidden;
 }
+h1 {
+      margin-top: 0;
+      text-align: center;
+      font-size: 1.2em;
+}
+.panel {
+  background: #222;
+  color: #eee;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 16px;
+  width: 300px;
+  margin: 12px 0;
+}
+.panel.highlight {
+  border-color: #6cf;
+  background: #1a1a2a;
+}
 </style>
+<div class="panel">
+  <h2>Panel Title</h2>
+  <p>This is a reusable panel.</p>
+</div>
+
+<div class="panel">
+  <h2>Another Panel</h2>
+  <p>Same style, different content.</p>
+</div>
 </head>
+</html>
